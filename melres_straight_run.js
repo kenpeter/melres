@@ -8,26 +8,18 @@ const myfunc = async () => {
   for (startIndex = 0; startIndex < config.total; startIndex += config.count) {
     const result = await mylib.fetechResPromise(startIndex, count);
     console.log('===================');
-    console.log(startIndex);
-    console.log(result);
+    //console.log(startIndex);
+    //console.log(result.restaurants);
+
+    const resArr = result.restaurants;
+    resArr.forEach((res) => {
+      res = res.restaurant;
+      const resId = res.id;
+      const name = res.name;
+      //console.log(res);
+      console.log(`${resId}: ${name}`);
+    });
   }
-
-  /*
-  startIndex = 0;
-  const result1 = await mylib.fetechResPromise(startIndex, count);
-
-  startIndex += config.count;
-  const result2 = await mylib.fetechResPromise(startIndex, count);
-
-  startIndex += config.count;
-  const result3 = await mylib.fetechResPromise(startIndex, count);
-
-
-  console.log('-- test --');
-  console.log(JSON.stringify(result1, null, 4));
-  console.log('==============================');
-  console.log(JSON.stringify(result2, null, 4));
-  */
 
   process.exit(0);
 };

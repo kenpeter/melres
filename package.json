@@ -9,5 +9,8 @@
     "mongoose": "^4.11.4",
     "node-fetch": "^1.7.1",
     "zomato": "^1.1.0"
+  },
+  "scripts": {
+    "test": "node melres_straight_run.js"
   }
 }
