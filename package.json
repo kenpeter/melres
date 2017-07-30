@@ -1,0 +1,12 @@
+{
+  "name": "melres",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "eslint-config-rallycoding": "^3.2.0",
+    "mongoose": "^4.11.4",
+    "node-fetch": "^1.7.1",
+    "zomato": "^1.1.0"
+  }
+}
