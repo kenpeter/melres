@@ -4,7 +4,7 @@ module.exports = {
   zomatoApiKey: 'E9b1cff0cffa024fcc7dd2da1abf75ca',
   locationId: 259,
   count: 20,
-  total: 20, // max is 100, that is all
+  total: 100, // max is 100, that is all
   entityType: 'city',
   startIndex: 0,
   // entity_id = 259, city is Melbourne
