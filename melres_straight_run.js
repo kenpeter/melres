@@ -1,27 +1,35 @@
-const fetch = require('node-fetch');
 const config = require('./config');
+const mylib = require('./lib/lib');
 
-let zomatoApiUrl = `${config.zomatoApiRootUrl}?entity_id=${config.locationId}&entity_type=city&start=0&count=20`;
+const myfunc = async () => {
+  let startIndex;
+  const count = config.count;
 
-/*
-console.log('-- test --');
-console.log(zomatoApiUrl);
-console.log('https://developers.zomato.com/api/v2.1/search?entity_id=259&entity_type=city&start=0&count=20');
-console.log(config.zomatoApiKey);
-*/
-
-fetch(zomatoApiUrl, {
-  method: 'GET',
-  headers: {
-    'user-key': config.zomatoApiKey
+  for (startIndex = 0; startIndex < config.total; startIndex += config.count) {
+    const result = await mylib.fetechResPromise(startIndex, count);
+    console.log('===================');
+    console.log(startIndex);
+    console.log(result);
   }
-})
-.then((res) =>
-  res.json()
-)
-.then((json) => {
-  console.log(JSON.stringify(json, null, 4));
-})
-.catch((err) => {
-  console.log(err);
-});
+
+  /*
+  startIndex = 0;
+  const result1 = await mylib.fetechResPromise(startIndex, count);
+
+  startIndex += config.count;
+  const result2 = await mylib.fetechResPromise(startIndex, count);
+
+  startIndex += config.count;
+  const result3 = await mylib.fetechResPromise(startIndex, count);
+
+
+  console.log('-- test --');
+  console.log(JSON.stringify(result1, null, 4));
+  console.log('==============================');
+  console.log(JSON.stringify(result2, null, 4));
+  */
+
+  process.exit(0);
+};
+
+myfunc();
