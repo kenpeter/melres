@@ -9,12 +9,17 @@ const Schema = mongoose.Schema;
 const RestaurantSchema = new Schema({
   resId: String,
   name: String,
-  address: String,
   url: String,
-  thumbUrl: String,
-  featuredImageUrl: String,
-  aggregateRating: Number,
+  address: String,
+
   averageCostForTwo: Number,
+  thumbUrl: String,
+  aggregateRating: Number,
+
+  photoUrl: String,
+  menuUrl: String,
+  featuredImageUrl: String,
+
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });

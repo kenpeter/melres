@@ -12,14 +12,15 @@ const myfunc = async () => {
     //console.log(result.restaurants);
 
     const resArr = result.restaurants;
-    resArr.forEach((res) => {
+    resArr.forEach(async (res) => {
       const myRes = res.restaurant;
-
+      const resObj = await mylib.restaurantSavePromise(myRes);
+      /*
       const resId = myRes.id;
       const name = myRes.name;
       const url = myRes.url;
-
       const address = myRes.location.address;
+
       const averageCostForTwo = myRes.average_cost_for_two;
       const thumbUrl = myRes.thumb;
       const rating = myRes.user_rating.aggregate_rating;
@@ -28,7 +29,6 @@ const myfunc = async () => {
       const menuUrl = myRes.menu_url;
       const featureImageUrl = myRes.featured_image;
 
-      /*
       console.log('-- start --');
       console.log(resId);
       console.log(name);
@@ -45,8 +45,6 @@ const myfunc = async () => {
 
       console.log('-- end --');
       */
-
-
     });
   }
 

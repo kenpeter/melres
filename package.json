@@ -11,6 +11,7 @@
     "zomato": "^1.1.0"
   },
   "scripts": {
-    "test": "node melres_straight_run.js"
+    "test": "node melres_straight_run.js",
+    "myclean": "node truncate.js"
   }
 }
