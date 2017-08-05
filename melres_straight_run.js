@@ -14,7 +14,14 @@ const myfunc = async () => {
     const resArr = result.restaurants;
     resArr.forEach(async (res) => {
       const myRes = res.restaurant;
-      const resObj = await mylib.restaurantSavePromise(myRes);
+      const realRes = await mylib.restaurantSavePromise(myRes);
+      // ok, no _id......
+      const condi = await mylib.restaurantVoteExistPromise(realRes.id);
+      if (!condi) {
+        await mylib.restaurantVoteSavePromise(realRes.id);
+        //console.log('-- not exist --');
+      }
+
       /*
       const resId = myRes.id;
       const name = myRes.name;
