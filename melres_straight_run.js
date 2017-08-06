@@ -14,11 +14,11 @@ const myfunc = async () => {
     const resArr = result.restaurants;
     resArr.forEach(async (res) => {
       const myRes = res.restaurant;
-      const realRes = await mylib.restaurantSavePromise(myRes);
-      // ok, no _id......
-      const condi = await mylib.restaurantVoteExistPromise(realRes.id);
+      await mylib.restaurantSavePromise(myRes);
+      // "id": "18106852", it is from the api, not from mongo db
+      const condi = await mylib.restaurantVoteExistPromise(myRes.id);
       if (!condi) {
-        await mylib.restaurantVoteSavePromise(realRes.id);
+        await mylib.restaurantVoteSavePromise(myRes.id);
         //console.log('-- not exist --');
       }
 
